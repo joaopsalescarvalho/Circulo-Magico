@@ -117,11 +117,15 @@ body{
     overflow: hidden;
     cursor: pointer;
     background-color: transparent;
-    border: 1px solid rgb(114, 13, 139);
+    border: 2px solid rgb(114, 13, 139);
     margin: 18px;
     height: 200px;
     width: 300px;
     transition: .2s;
+  }
+  .theme:hover{
+    border: 2px solid #b500fd;
+    transition-delay:1s;
   }
   .theme img{
     float: left;
