@@ -21,6 +21,7 @@ const shadowout=document.querySelectorAll('[data-shadowout]')
 /*codigo do slide*/
 function init(){
   themas.style=`position:relative;left:0px`
+  perspective(0)
 }
 setaEsquerda.addEventListener('click',forRight)
 setaDireita.addEventListener('click',forLeft)
@@ -32,16 +33,47 @@ buttonTelaDeSelecao.addEventListener('click',()=>{
 
 function forLeft(){
   let pos=parseInt(themas.style.left)
-  pos-=150
+  pos-=300
   themas.style.left=`${pos}px`;
+  perspective(pos)
 }
 function forRight(){
+  
   let pos=parseInt(themas.style.left)
-  pos+=150
+  pos+=300
   themas.style.left=`${pos}px`;
+  perspective(pos)
 }
 
-
+function perspective(pos){
+  if(pos == 0 & pos > -300){
+    setaEsquerda.style.display='none'
+    temaAzul.classList.add('esquerdo');
+    temaVerde.classList.add('central');
+    temaAmarelo.classList.add('direito');
+  }else if(pos == -300 & pos > -600){
+    setaEsquerda.style.display='block'
+    temaVerde.classList.remove('central');
+    temaAmarelo.classList.remove('direito');
+    temaVerde.classList.add('esquerdo');
+    temaAmarelo.classList.add('central');
+    temaVermelho.classList.add('direito');
+  } else if(pos == -600 & pos > -900){
+    setaDireita.style.display='block'
+    temaAmarelo.classList.remove('central');
+    temaVermelho.classList.remove('direito');
+    temaAmarelo.classList.add('esquerdo');
+    temaVermelho.classList.add('central');
+    temaRosa.classList.add('direito')
+  } else{
+    setaDireita.style.display='none'
+    temaVermelho.classList.remove('central');
+    temaRosa.classList.remove('direito')
+    temaVermelho.classList.add('esquerdo');
+    temaRosa.classList.add('central')
+    temaRoxo.classList.add('direito')
+  }
+}
 
 /*selecionar a cor*/
 temaAzul.addEventListener('click',()=>{
@@ -123,3 +155,4 @@ function animationOff(){
 conteiner.addEventListener('mouseenter',itsOn)
 conteiner.addEventListener('mouseleave',itsOff)
 window.onload=init
+

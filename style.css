@@ -4,16 +4,17 @@
     src: url(../../fontes/Yellow-Magician/YellowMagician.ttf) format("truetype");
 }
 :root{
-    --corbrilhante:#48CAE4;
-    --corescura:#03045E;
-    --corpadrao:#0096C7;
+
+    --corbrilhante:#f700ff;
+    --corescura:#5530bd;
+    --corpadrao:#aa00ff;
 
     --fonteprojetos:'YellowMagician';
 }
 .cor-vermelha:root{
-    --corbrilhante:#d00000;
-    --corescura:#660708;
-    --corpadrao:#ba181b;
+    --corbrilhante:#fc0000;
+    --corescura:#800305;
+    --corpadrao:#b6171a;
 }
 .cor-azul:root{
     --corbrilhante:#48CAE4;
@@ -21,23 +22,23 @@
     --corpadrao:#0096C7;    
 }
 .cor-verde:root{
-    --corbrilhante:#70e000;
+    --corbrilhante:#80ff00;
     --corescura:#006400;
-    --corpadrao:#008000;
+    --corpadrao:#02a102;
 }
 
 .cor-amarela:root{
-    --corbrilhante:#fff200;
-    --corescura:#fdc100;
-    --corpadrao:#ffcc00;
+    --corbrilhante:#fbff00;
+    --corescura:#857c00;
+    --corpadrao:#c5ba21;
 }
 .cor-rosa:root{
-    --corbrilhante:#f20089;
-    --corescura:#c9184a;
-    --corpadrao:#ff0054;
+    --corbrilhante:#ff0054;
+    --corescura:#830f30;
+    --corpadrao:#a10934;
 }
 .cor-roxa:root{
-    --corbrilhante:#a100f2;
+    --corbrilhante:#aa00ff;
     --corescura:#3c096c;
     --corpadrao:#5a189a;
 }
@@ -61,9 +62,12 @@ body{
     position: absolute; 
     top: 50%;
     left: 50%;
-    background-color: rgba(255, 255, 255, 0.76);
-    height: 500px;
-    width: 500px;
+    background-image: url('imgs/Fundo\ gradiente\ de\ galáxia\ _\ Vetor\ Grátis.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -73,72 +77,126 @@ body{
   .conteiner-hidden{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     position: relative;
-    background-color: #660708;
-    height: 500px;
-    width: 960px;
+    padding: 30px;
+    height: 100vh;
+    width: 2200px;
     transform: translateX(0px);
-    transition: left 2s;
-    -moz-transition: left 2s;
-    -webkit-transition: left 2s;
-    -o-transition: left 2s;
-  }
-  .quadro{
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    background-color: rgba(255, 252, 252, 0.712);
-    height: 120px;
-    width: 120px;
-  }
-  .esquerdo{
-    
-  }
-  .central{
-
-  }
-  .direito{
-    
+    transition: left 1s;
+    -moz-transition: left 1s;
+    -webkit-transition: left 1s;
+    -o-transition: left 1s;
   }
   #seta-esquerda{
+    scale: 1.5;
+    cursor: pointer;
     position: absolute;
+    color: white;
     top: 50%;
     left: 5%;
     translate: -50% -50%;
     z-index: 1;
+    animation: changecolor 3s linear infinite;
   }
   #seta-direita{
+    scale: 1.5;
+    cursor: pointer;
     position: absolute;
+    color: white;
     top: 50%;
     right: 5%;
     translate: 50% -50%;
     z-index: 1;
+    transition: .2s;
+    animation: changecolor 3s linear infinite;
   }
   .theme{
-    background-color: blue;
-    height: 120px;
-    width: 120px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid rgb(114, 13, 139);
+    margin: 18px;
+    height: 200px;
+    width: 300px;
+    transition: .2s;
   }
-  .azul{
-    background-image: url("");
+  .theme img{
+    float: left;
+    height: 196px;
+    width: 148px;
   }
-  .verde{
-    background-image: url("");
+  .esquerdo{
+    transition: 2s;
+    transform: perspective(300px) rotateY(30deg);
   }
-  .amarelo{
-    background-image: url("");
+  .central{
+    transition: 2s;
+    transform: perspective(300px) rotateY(0deg);
   }
-  .vermelho{
-    background-image: url("");
+  .direito{
+    transition: 2s;
+    transform: perspective(300px) rotateY(-30deg);
   }
-  .rosa{
-    background-image: url("");
+  .theme span{
+    position: absolute;
+    display: block;
   }
-  .roxo{
-    background-image: url("");
+  .theme span:nth-child(1){
+    width: 100%;
+    height: 2px;
+
+    top:0;
+    left: -100%;
+    background: linear-gradient(90deg, transparent, #a000fd);
+
   }
+  .theme:hover span:nth-child(1){
+        left: 100%;
+        transition: 1s;
+    }
+  .theme span:nth-child(2){
+    width: 2px;
+    height: 100%;
+
+    right: 0;
+    top: -100%;
+    background: linear-gradient(180deg, transparent, #a000fd);
+  }
+  .theme:hover span:nth-child(2){
+        top: 100%;
+        transition: 1s;
+        transition-delay: .25s;
+    }
+  .theme span:nth-child(3){
+    width: 100%;
+    height: 2px;
+
+    bottom: 0;
+    right: -100%;
+    background: linear-gradient(270deg, transparent, #a000fd);
+  }
+  .theme:hover span:nth-child(3){
+        right: 100%;
+        transition: 1s;
+        transition-delay: .5s;
+    }
+  .theme span:nth-child(4){
+    width: 2px;
+    height: 100%;
+
+    left: 0;
+    top: 100%;
+    background: linear-gradient(360deg, transparent, #a000fd);
+
+  }
+  .theme:hover span:nth-child(4){
+    top: -100%;
+    transition: 1s;
+    transition-delay: .75s;
+}
   /*animacao style*/
 .conteiner{
     display: none;
