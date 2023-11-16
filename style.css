@@ -223,6 +223,44 @@ body{
     left: -180px;
     translate: -50% -50% ;
 }
+@media screen and (min-width: 320px) and (max-width: 400px){
+    .conteiner-hidden{
+        justify-content: space-between;
+        padding: 0px;
+        width: 1920px;
+    }
+    .theme{
+        margin: 5px;
+        scale: 0.8;
+    }
+    .btn-slide-screen{
+        top: -90px;
+        left: -100px;
+    }
+}
+@media screen and (min-width: 500px) and (max-width: 700px){
+    .theme{
+        scale: 0.8;
+    }
+}
+@media screen and (min-width: 700px) and (max-width: 992px){
+    .conteiner-hidden{
+        justify-content: left;
+        width: 2080px;
+    }
+    .theme{
+        scale: 0.8;
+        
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1150px){
+    .conteiner-hidden{
+        justify-content: left;
+    }
+    .theme{
+        scale: 0.9;
+    }
+}
 .girar{
     background-color: transparent;
     width: 300px;
