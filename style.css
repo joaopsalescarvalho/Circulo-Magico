@@ -239,6 +239,10 @@ body{
     }
 }
 @media screen and (min-width: 500px) and (max-width: 700px){
+    .conteiner-hidden{
+        justify-content: left;
+        width: 2080px;
+    }
     .theme{
         scale: 0.8;
     }
@@ -256,6 +260,7 @@ body{
 @media screen and (min-width: 992px) and (max-width: 1150px){
     .conteiner-hidden{
         justify-content: left;
+        width: 2080px;
     }
     .theme{
         scale: 0.9;

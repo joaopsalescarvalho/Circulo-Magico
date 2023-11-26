@@ -41,11 +41,12 @@ buttonTelaDeSelecao.addEventListener("click", () => {
 
 function widthVerify(pos) {
   const screen =visualViewport.width;
-  if ((screen >= 320) & (screen <= 600)) {
+  console.log(screen)
+  if ((screen >= 320) & (screen <= 700)) {
     perspectiveFirstScreen(pos);
-  } else if ((screen >= 601) & (screen <= 900)) {
+  } else if ((screen >= 701) & (screen <= 992)) {
     perspectiveSecondScreen(pos);
-  } else if ((screen >= 901) & (screen <= 1050)) {
+  } else if ((screen >= 993) & (screen <= 1150)) {
     perspectiveThirtScreen(pos);
   } else {
     perspectiveFinalScreen(pos);
@@ -55,13 +56,13 @@ function widthVerify(pos) {
 function forLeft() { 
   const screen =visualViewport.width;
   let pos = parseInt(themas.style.left);
-  if ((screen >= 320) & (screen <= 600)) {
+  if ((screen >= 320) & (screen <= 700)) {
     pos -=320;
     console.log(pos)
-  } else if ((screen >= 601) & (screen <= 900)) {
-    pos -=350;
+  } else if ((screen >= 701) & (screen <= 992)) {
+    pos -=360;
     console.log(pos)
-  } else if ((screen >= 901) & (screen <= 1050)) {
+  } else if ((screen >= 993) & (screen <= 1150)) {
     pos -=350;
     console.log(pos)
   } else {
@@ -75,13 +76,13 @@ function forLeft() {
 function forRight() {
   const screen =visualViewport.width;
   let pos = parseInt(themas.style.left);
-  if ((screen >= 320) & (screen <= 600)) {
+  if ((screen >= 320) & (screen <= 700)) {
     pos +=320;
     console.log(pos)
-  } else if ((screen >= 601) & (screen <= 900)) {
-    pos +=350;
+  } else if ((screen >= 701) & (screen <= 992)) {
+    pos +=360;
     console.log(pos)
-  } else if ((screen >= 901) & (screen <= 1050)) {
+  } else if ((screen >= 993) & (screen <= 1150)) {
     pos +=350;
     console.log(pos)
   } else {
@@ -104,25 +105,33 @@ function perspectiveFirstScreen(pos) {
   }
 }
 function perspectiveSecondScreen(pos) {
-  if ((pos == 0) & (pos > -350)) {
+  if ((pos == 0) & (pos > -360)) {
     setaEsquerda.style.display = "none";
     temaAzul.classList.add("esquerdo");
     temaVerde.classList.add("central");
     temaAmarelo.classList.add("direito");
-  } else if ((pos == -350) & (pos > -700)) {
+    temaVerde.style.translate='-25%';
+    temaAmarelo.style.translate='-50%';
+  } else if ((pos == -360) & (pos > -720)) {
     setaEsquerda.style.display = "block";
     temaVerde.classList.remove("central");
     temaAmarelo.classList.remove("direito");
     temaVerde.classList.add("esquerdo");
     temaAmarelo.classList.add("central");
     temaVermelho.classList.add("direito");
-  } else if ((pos == -700) & (pos > -1050)) {
+    temaVerde.style.translate='-0%';
+    temaAmarelo.style.translate='-25%';
+    temaVermelho.style.translate='-50%';
+  } else if ((pos == -720) & (pos > -1080)) {
     setaDireita.style.display = "block";
     temaAmarelo.classList.remove("central");
     temaVermelho.classList.remove("direito");
     temaAmarelo.classList.add("esquerdo");
     temaVermelho.classList.add("central");
     temaRosa.classList.add("direito");
+    temaAmarelo.style.translate='10%';
+    temaVermelho.style.translate='-15%';
+    temaRosa.style.translate='-40%';
   } else {
     setaDireita.style.display = "none";
     temaVermelho.classList.remove("central");
@@ -130,6 +139,9 @@ function perspectiveSecondScreen(pos) {
     temaVermelho.classList.add("esquerdo");
     temaRosa.classList.add("central");
     temaRoxo.classList.add("direito");
+    temaVermelho.style.translate='20%';
+    temaRosa.style.translate='-5%';
+    temaRoxo.style.translate='-30%';
   }
 }
 function perspectiveThirtScreen(pos) {
